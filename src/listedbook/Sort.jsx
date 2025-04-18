@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { getStoreBook } from "../ulites/addTo";
 import ReadItem from "./ReadItem";
+import { ClipLoader } from "react-spinners";
 
 function Sort() {
    const [redata, setRedata] = useState([]);
@@ -18,6 +19,16 @@ function Sort() {
       const myReadList = data.filter(book => conbartSoteBook.includes(book.bookId));
       setRedata(myReadList);
    }, [data]);
+
+
+   if (redata.length === 0) {
+      return (
+         <div className="flex justify-center items-center min-h-screen">
+            {/* ClipLoader spinner from react-spinners */}
+            <ClipLoader color="#23BE0A" loading={true} size={50} />
+         </div>
+      );
+   }
 
    const handleShort = (type) => {
       setShort(type);

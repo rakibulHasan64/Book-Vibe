@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BooksItem from "./BooksItem";
+import { ClipLoader } from "react-spinners";
 
 
 
@@ -18,9 +19,15 @@ function Book() {
    }, []);
 
 
-   if (book.length===0) {
-      return <span>Data is loddinge .......</span>
+   if (book.length === 0) {
+      return (
+         <div className="flex justify-center items-center min-h-screen">
+            {/* ClipLoader spinner from react-spinners */}
+            <ClipLoader color="#23BE0A" loading={true} size={50} />
+         </div>
+      );
    }
+
 
 
 

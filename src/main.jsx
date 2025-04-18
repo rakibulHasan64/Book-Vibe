@@ -17,6 +17,8 @@ import Login from "./reslogine/Login.jsx";
 
 import Sort from "./listedbook/Sort.jsx";
 
+import BookChart from "./CHART/BookChart.jsx";
+
 
 
 
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
       
       {
         path: "/home",
+        index: true,
         element: <AllLayoutHome />
       },
       {
@@ -45,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/logine",
         element: <Login />
+      },
+      {
+        path: "/chart",
+        element: <  BookChart />
       },
 
     

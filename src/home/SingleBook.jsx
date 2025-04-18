@@ -4,8 +4,11 @@ import {
    Calendar,
    Star,
    FileText
-} from "lucide-react"; 
+} from "lucide-react";
 import { addToStoreDB } from "../ulites/addTo";
+import Swal from "sweetalert2";
+
+
 
 function SingleBook() {
    const { id } = useParams();
@@ -35,17 +38,14 @@ function SingleBook() {
       yearOfPublishing,
    } = singleBook;
 
-
-
    const handleMarkRead = (id) => {
-      addToStoreDB(id)
+      addToStoreDB(id);  
+      Swal.fire({
+         title: "Good job!",
+         text: "You clicked the button!",
+         icon: "success"
+      });
    }
-
-
-
-
-
-
 
    return (
       <div className="container mx-auto py-24 px-6 lg:px-12">
@@ -114,7 +114,7 @@ function SingleBook() {
 
                {/* Buttons */}
                <div className="flex items-center gap-6 mt-10">
-                  <button onClick={()=> handleMarkRead(id)} className="bg-[#23BE0A] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#1a9907] transition">
+                  <button onClick={() => handleMarkRead(id)} className="bg-[#23BE0A] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#1a9907] transition">
                      Read Now
                   </button>
                   <button className="bg-[#FFD700] text-black px-6 py-2 rounded-full font-semibold hover:bg-[#e5c200] transition">
@@ -123,6 +123,8 @@ function SingleBook() {
                </div>
             </div>
          </div>
+
+      
       </div>
    );
 }
@@ -130,18 +132,3 @@ function SingleBook() {
 export default SingleBook;
 
 
-
-
-// {
-//    "bookId": 1,
-//       "bookName": "The Great Gatsby",
-//          "author": "F. Scott Fitzgerald",
-//             "image": "https://i.ibb.co.com/khHN7Pk/9780143454212.jpg",
-//                "review": "'The Great Gatsby' by F. Scott Fitzgerald is a timeless masterpiece that delves into the decadence and disillusionment of the Jazz Age. Set in the Roaring Twenties, the novel unveils the enigmatic Jay Gatsby's extravagant parties, masking a pursuit of lost love. Narrated by Nick Carraway, the story explores themes of wealth, love, and the American Dream, drawing readers into a vivid portrayal of the glittering yet elusive world of the East and West Egg. Fitzgerald's prose is both poetic and haunting, weaving a compelling narrative that transcends its era. A poignant exploration of societal excess and the human condition, 'The Great Gatsby' remains a literary gem that resonates across generations.",
-//                   "totalPages": 192,
-//                      "rating": 4.5,
-//                         "category": "Classic",
-//                            "tags": ["Fiction", "Romance"],
-//                               "publisher": "Scribner",
-//                                  "yearOfPublishing": 1925
-// },

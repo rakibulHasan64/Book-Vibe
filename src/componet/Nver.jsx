@@ -16,7 +16,7 @@ function Nver() {
                         <li className="py-2 px-4 rounded-md hover:border hover:text-[#23BE0A] hover:border-[#23BE0A]">Listed Books</li>
                      </Link>
                
-                     <Link to={"/data"}>
+                     <Link to={"/chart"}>
                         <li className="py-2 px-4 rounded-md hover:border hover:text-[#23BE0A] hover:border-[#23BE0A]">Pages to Read</li>
                      </Link>
                      

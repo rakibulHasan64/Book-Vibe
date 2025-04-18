@@ -1,3 +1,6 @@
+
+import Swal from "sweetalert2";
+
 const getStoreBook = () => {
    const storeBookSTR = localStorage.getItem("readList");
 
@@ -14,7 +17,11 @@ const addToStoreDB = (id) => {
    const storedBookData = getStoreBook();
 
    if (storedBookData.includes(id)) {
-      alert('bhi ei id already exist')
+      Swal.fire({
+               title: "Bad job!",
+               text: "You alredy the add!",
+               icon: "success"
+            });
    } else {
       storedBookData.push(id);
       const data = JSON.stringify(storedBookData)
